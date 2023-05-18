@@ -1,5 +1,5 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:dam_u4_proyecto2_18401197/insertar_asistencia.dart';
+import 'package:dam_u4_proyecto2_18401197/paginas/insertar_asistencia.dart';
 
 import 'package:dam_u4_proyecto2_18401197/servicios/firebase_service.dart';
 import 'package:flutter/material.dart';
