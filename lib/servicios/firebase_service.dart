@@ -121,7 +121,7 @@ Future<List> getAsistenciasPorRevisor(String nombreRevisor) async {
       .collectionGroup('asistencia')
       .where('revisor', isEqualTo: nombreRevisor)
       .get();
-  asistencias.addAll(querySnapshot.docs.map((doc) => doc.data()).toList());
+  asistencias.addAll(querySnapshot.docs.map((doc) => doc.data() as Map<String, dynamic>).toList());
   return asistencias;
 }
 
