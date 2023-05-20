@@ -1,4 +1,5 @@
 import 'package:dam_u4_proyecto2_18401197/paginas/asistencia.dart';
+import 'package:dam_u4_proyecto2_18401197/paginas/consultaasistenciadocente.dart';
 import 'package:dam_u4_proyecto2_18401197/servicios/firebase_service.dart';
 import 'package:flutter/material.dart';
 
@@ -10,12 +11,13 @@ class Inicio extends StatefulWidget {
 }
 
 class _InicioState extends State<Inicio> {
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(centerTitle: true,
         title: Text("Asignación", style: TextStyle(color: Colors.white,
-          ),
+        ),
         ),
         leading: Icon(Icons.assignment_outlined),
       ),
@@ -33,14 +35,14 @@ class _InicioState extends State<Inicio> {
                     contentPadding:
                     EdgeInsets.symmetric(horizontal: 20, vertical: 10),
                     trailing: Text("Materia", style: TextStyle(fontWeight: FontWeight.bold,
-                      ),
+                    ),
                     ),
                     leading: Icon(Icons.account_box, size: 40, color: Colors.black87,
                     ),
                     title: Text(
                       snapshot.data?[index]['materia'] ?? 'No disponible', style: TextStyle(
-                        fontWeight: FontWeight.bold,
-                      ),
+                      fontWeight: FontWeight.bold,
+                    ),
                     ),
                     subtitle: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
@@ -136,12 +138,29 @@ class _InicioState extends State<Inicio> {
           }
         }),
       ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: () async {
-          await Navigator.pushNamed(context, '/add');
-          setState(() {});
-        },
-        child: const Icon(Icons.add),
+      floatingActionButton: Column(
+        mainAxisAlignment: MainAxisAlignment.end,
+        children: [
+          FloatingActionButton(
+            onPressed: () async {
+              await Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (context) => Consultas(),
+                ),
+              );
+            },
+            child: const Icon(Icons.search),
+          ),
+          SizedBox(height: 10),
+          FloatingActionButton(
+            onPressed: () async {
+              await Navigator.pushNamed(context, '/add');
+              setState(() {});
+            },
+            child: const Icon(Icons.add),
+          ),
+        ],
       ),
     );
   }
